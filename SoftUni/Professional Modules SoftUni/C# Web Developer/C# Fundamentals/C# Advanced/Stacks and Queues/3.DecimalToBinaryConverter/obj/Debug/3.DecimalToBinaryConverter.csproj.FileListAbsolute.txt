@@ -1,0 +1,7 @@
+C:\Users\106\source\repos\Stacks and Queues\3.DecimalToBinaryConverter\bin\Debug\3.DecimalToBinaryConverter.exe.config
+C:\Users\106\source\repos\Stacks and Queues\3.DecimalToBinaryConverter\bin\Debug\3.DecimalToBinaryConverter.exe
+C:\Users\106\source\repos\Stacks and Queues\3.DecimalToBinaryConverter\bin\Debug\3.DecimalToBinaryConverter.pdb
+C:\Users\106\source\repos\Stacks and Queues\3.DecimalToBinaryConverter\obj\Debug\3.DecimalToBinaryConverter.csprojResolveAssemblyReference.cache
+C:\Users\106\source\repos\Stacks and Queues\3.DecimalToBinaryConverter\obj\Debug\3.DecimalToBinaryConverter.csproj.CoreCompileInputs.cache
+C:\Users\106\source\repos\Stacks and Queues\3.DecimalToBinaryConverter\obj\Debug\3.DecimalToBinaryConverter.exe
+C:\Users\106\source\repos\Stacks and Queues\3.DecimalToBinaryConverter\obj\Debug\3.DecimalToBinaryConverter.pdb

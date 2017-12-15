@@ -1,0 +1,7 @@
+C:\Users\106\source\repos\Stacks and Queues\Stacks and Queues\bin\Debug\Stacks and Queues.exe.config
+C:\Users\106\source\repos\Stacks and Queues\Stacks and Queues\bin\Debug\Stacks and Queues.exe
+C:\Users\106\source\repos\Stacks and Queues\Stacks and Queues\bin\Debug\Stacks and Queues.pdb
+C:\Users\106\source\repos\Stacks and Queues\Stacks and Queues\obj\Debug\Stacks and Queues.csprojResolveAssemblyReference.cache
+C:\Users\106\source\repos\Stacks and Queues\Stacks and Queues\obj\Debug\Stacks and Queues.csproj.CoreCompileInputs.cache
+C:\Users\106\source\repos\Stacks and Queues\Stacks and Queues\obj\Debug\Stacks and Queues.exe
+C:\Users\106\source\repos\Stacks and Queues\Stacks and Queues\obj\Debug\Stacks and Queues.pdb

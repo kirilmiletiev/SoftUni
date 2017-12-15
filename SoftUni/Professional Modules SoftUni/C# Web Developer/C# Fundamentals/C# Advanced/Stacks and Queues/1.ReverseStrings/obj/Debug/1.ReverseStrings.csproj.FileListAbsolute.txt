@@ -1,0 +1,6 @@
+C:\Users\106\source\repos\Stacks and Queues\1.ReverseStrings\bin\Debug\1.ReverseStrings.exe.config
+C:\Users\106\source\repos\Stacks and Queues\1.ReverseStrings\bin\Debug\1.ReverseStrings.exe
+C:\Users\106\source\repos\Stacks and Queues\1.ReverseStrings\bin\Debug\1.ReverseStrings.pdb
+C:\Users\106\source\repos\Stacks and Queues\1.ReverseStrings\obj\Debug\1.ReverseStrings.csproj.CoreCompileInputs.cache
+C:\Users\106\source\repos\Stacks and Queues\1.ReverseStrings\obj\Debug\1.ReverseStrings.exe
+C:\Users\106\source\repos\Stacks and Queues\1.ReverseStrings\obj\Debug\1.ReverseStrings.pdb
