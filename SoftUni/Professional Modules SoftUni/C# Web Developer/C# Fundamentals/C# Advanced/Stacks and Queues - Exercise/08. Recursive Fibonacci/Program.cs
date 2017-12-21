@@ -18,21 +18,6 @@ namespace _08.Recursive_Fibonacci
             memo = new long[n + 1];
             Console.WriteLine(GetFibonacci(n));
 
-
-            //long GetFibonacci(long n)
-            //{
-            //    if (n <= 2)
-            //    {
-            //        return 1;
-            //    }
-
-            //    if (memo[n] == 0)
-            //    {
-            //        memo[n] = GetFibonacci(n - 1) + GetFibonacci(n - 2);
-            //    }
-
-            //    return memo[n];
-            //}
         }
 
         private static long GetFibonacci(long l)
