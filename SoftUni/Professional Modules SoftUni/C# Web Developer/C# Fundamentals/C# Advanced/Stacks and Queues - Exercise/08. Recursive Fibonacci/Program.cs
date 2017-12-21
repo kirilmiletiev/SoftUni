@@ -1,41 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _08.Recursive_Fibonacci
+namespace _8.Recursive_Fibonacci
 {
-    class Program
+    using System;
+
+    public class RecursiveFibonacci
     {
-        static void Main(string[] args)
+        private static long[] m;
+
+        public static void Main()
         {
-
-            long[] memo;
-
-
-            var n = long.Parse(Console.ReadLine());
-            memo = new long[n + 1];
-            Console.WriteLine(GetFibonacci(n));
-
+            var num = long.Parse(Console.ReadLine());
+            m = new long[num + 1];
+            Console.WriteLine(GetCalc(num));
         }
 
-        private static long GetFibonacci(long l)
+        private static long GetCalc(long n)
         {
-            long[] memo;
-            var n = long.Parse(Console.ReadLine());
-            memo = new long[n + 1];
             if (n <= 2)
             {
                 return 1;
             }
 
-            if (memo[n] == 0)
+            if (m[n] == 0)
             {
-                memo[n] = GetFibonacci(n - 1) + GetFibonacci(n - 2);
+                m[n] = GetCalc(n - 1) + GetCalc(n - 2);
             }
 
-            return memo[n];
+            return m[n];
         }
     }
 }
