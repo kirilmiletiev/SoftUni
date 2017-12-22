@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +10,26 @@ namespace _09.Stack_Fibonacci
     {
         static void Main(string[] args)
         {
-            var sum = 0;
+            long sum = 0;
             var counter = 0;
             var n = int.Parse(Console.ReadLine());
-            Stack<int> stack = new Stack<int>();
+            Stack<long> stack = new Stack<long>();
             stack.Push(0);
             stack.Push(1);
-            for (int i = 0; i < n; i++)
+
+            if (n == 1 || n == 0)
             {
-                var one = stack.Peek();
+                Console.WriteLine("1");
+                return;
+            }
+            for (int i = 0; i < n-1; i++)
+            {
+                long one = stack.Peek();
                 sum = stack.Pop() + stack.Pop();
+
+                stack.Push(one);
+                stack.Push(sum);
+
             }
 
             Console.WriteLine(sum);
