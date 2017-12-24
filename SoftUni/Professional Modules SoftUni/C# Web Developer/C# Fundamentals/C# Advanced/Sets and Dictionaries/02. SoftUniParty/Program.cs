@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,19 +52,21 @@ namespace _02.SoftUniParty
             var nummmm = normalSet.Count + vipSet.Count;
 
 
-            Console.WriteLine($"That is the nummber of the guest, who did not come {nummmm}");
+            Console.WriteLine($"{nummmm}");
 
-            Console.WriteLine("---------------------NORMAL-----------");
-            foreach (var key in normalSet)
-            {
-                Console.WriteLine(key);
-            }
-            Console.WriteLine("---------------------VIP-----------");
-            foreach (var key in vipSet)
+           // Console.WriteLine("---------------------VIP-----------");
+            foreach (var key in vipSet.OrderBy(x=>x))
             {
 
                 Console.WriteLine(key);
             }
+
+            //Console.WriteLine("---------------------NORMAL-----------");
+            foreach (var key in normalSet.OrderBy(x=>x))
+            {
+                Console.WriteLine(key);
+            }
+            
         }
     }
 }
