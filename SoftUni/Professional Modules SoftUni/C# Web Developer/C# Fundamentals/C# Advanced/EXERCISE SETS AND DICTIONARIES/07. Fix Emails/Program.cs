@@ -29,7 +29,6 @@ namespace _07.Fix_Emails
             }
             foreach (KeyValuePair<string, string> keyValuePair in dict)
             {
-                //Console.WriteLine(keyValuePair);
                 Console.WriteLine($"{keyValuePair.Key} -> {keyValuePair.Value}");
             }
         }
