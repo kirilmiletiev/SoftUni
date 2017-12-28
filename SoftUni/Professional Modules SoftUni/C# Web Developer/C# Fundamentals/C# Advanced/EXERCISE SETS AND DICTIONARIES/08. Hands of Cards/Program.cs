@@ -11,60 +11,103 @@ namespace _08.Hands_of_Cards
     {
         static void Main(string[] args)
         {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            var input = Console.ReadLine();
-
-            while (input != "JOKER")
+            var separators = new char []{ ' ', ',' };
+            var dict = new Dictionary<string, string>();
+            string input = Console.ReadLine();
+            while (!input.Equals("JOKER"))
             {
-                var aaa = input.Split(':');
-                var spl = input.Split(new[] {' ', ',', ':'});
-
-                var name = spl[0];
-
+                var nameAndCards = input.Split(':').ToArray();
+                string name = nameAndCards[0];
                 if (!dict.ContainsKey(name))
                 {
-                    dict.Add(name, aaa[1] );
-
+                    dict[name] = nameAndCards[1];
                 }
                 else
                 {
-                    var cards = aaa[1].Split(new[] {' ', ','}, StringSplitOptions.RemoveEmptyEntries);
-
-                    foreach (var card in cards)
-                    {
-                        if (!dict[name].Contains(card))
-                        {
-                            dict[name] += ", "+card;
-                        }
-                    }
-                    
-                    
+                    dict[name] += nameAndCards[1];
                 }
                 input = Console.ReadLine();
-
             }
-
-
-
-            foreach (var value in dict.Values)
+            foreach (var item in dict)
             {
-                var v = value.Split(new[] {' ', ','}, StringSplitOptions.RemoveEmptyEntries);
-               // Console.WriteLine(string.Join(" ", v));
-
-                foreach (var s in v)
+                var CardsList = item.Value.Split(separators, StringSplitOptions.RemoveEmptyEntries).Distinct().ToList();
+                int multipl = 1;
+                int cardpower = 0;
+                long sum=0;
+                foreach (var word in CardsList)
                 {
-                    Console.WriteLine(s);
+                    if (string.Join("",word.Skip(word.Length-1))=="S")
+                    {
+                        multipl = 4;
+                    }
+                    else if (string.Join("",word.Skip(word.Length - 1)) == "H")
+                    {
+                        multipl = 3;
+                    }
+                    else if (string.Join("", word.Skip(word.Length - 1)) == "D")
+                    {
+                        multipl = 2;
+                    }
+                    //-----------------------------------------------------------
+                    if (string.Join("",word.Take(word.Length - 1)) == "2")
+                    {
+                        cardpower = 2;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "3")
+                    {
+                        cardpower = 3;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "4")
+                    {
+                        cardpower = 4;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "5")
+                    {
+                        cardpower = 5;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "6")
+                    {
+                        cardpower = 6;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "7")
+                    {
+                        cardpower = 7;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "8")
+                    {
+                        cardpower = 8;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "9")
+                    {
+                        cardpower = 9;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "10")
+                    {
+                        cardpower = 10;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "J")
+                    {
+                        cardpower = 11;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "Q")
+                    {
+                        cardpower = 12;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "K")
+                    {
+                        cardpower = 13;
+                    }
+                    else if (string.Join("", word.Take(word.Length - 1)) == "A")
+                    {
+                        cardpower = 14;
+                    }
+                    sum += cardpower * multipl;
+                    cardpower = 0;
+                    multipl = 1;
                 }
-
+                Console.WriteLine("{0}: {1}", item.Key, sum);
+                sum = 0;            
             }
-
-            //Console.WriteLine("-------------------");
-
-            //foreach (KeyValuePair<string,string> keyValuePair in dict)
-            //{
-            //    Console.WriteLine(keyValuePair);
-            //}
-
 
         }
     }
