@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +11,9 @@ namespace _12.Legendary_Farming
     {
         static void Main(string[] args)
         {
-            
-            SortedDictionary<string, long> dict = new SortedDictionary<string, long>();
-            SortedDictionary<string, long> junkDict = new SortedDictionary<string, long>();
+
+            Dictionary<string, long> dict = new Dictionary<string, long>();
+            Dictionary<string, long> junkDict = new Dictionary<string, long>();
             dict.Add("motes", 0);
             dict.Add("shards", 0);
             dict.Add("fragments", 0);
@@ -31,20 +31,21 @@ namespace _12.Legendary_Farming
                         {
                             dict[input[i]] += long.Parse(input[i - 1]);
 
-                            if (dict[input[i]]>=250 && input[i]== "shards")
+                            if (dict[input[i]] >= 250 && input[i] == "shards")
                             {
                                 getData = false;
                                 dict[input[i]] -= 250;
                                 theItem = "Shadowmourne";
                                 break;
-                            }else if (dict[input[i]] >= 250 && input[i] == "fragments")
+                            }
+                            else if (dict[input[i]] >= 250 && input[i] == "fragments")
                             {
                                 getData = false;
                                 dict[input[i]] -= 250;
                                 theItem = "Valanyr";
                                 break;
                             }
-                            else if(dict[input[i]] >= 250 && input[i] == "motes")
+                            else if (dict[input[i]] >= 250 && input[i] == "motes")
                             {
                                 getData = false;
                                 dict[input[i]] -= 250;
@@ -58,38 +59,25 @@ namespace _12.Legendary_Farming
                             {
                                 junkDict.Add(input[i], new long());
                                 junkDict[input[i]] += long.Parse(input[i - 1]);
-                                if (junkDict[input[i]] >= 250)
-                                {
-                                    getData = false;
-                                    junkDict[input[i]] -= 250;
-                                    break;
-                                }
                             }
                             else
                             {
                                 junkDict[input[i]] += long.Parse(input[i - 1]);
-                                if (junkDict[input[i]] >= 250)
-                                {
-                                    getData = false;
-                                    junkDict[input[i]] -= 250;
-                                    break;
-                                }
                             }
                         }
                     }
-
                 }
             }
-            Console.WriteLine($"{theItem} obtained!");
-           foreach (KeyValuePair<string, long> keyValuePair in dict.OrderByDescending(x=>x.Value).ThenBy(y=>y.Key))
-           {
-               Console.WriteLine($"{keyValuePair.Key}: {keyValuePair.Value}");
 
-           }
-           foreach (var i in junkDict.OrderBy(x=>x.Key))
-           {
-               Console.WriteLine($"{i.Key}: {i.Value}");
-           }
+            Console.WriteLine($"{theItem} obtained!");
+            foreach (KeyValuePair<string, long> keyValuePair in dict.OrderByDescending(x => x.Value).ThenBy(y => y.Key))
+            {
+                Console.WriteLine($"{keyValuePair.Key}: {keyValuePair.Value}");
+            }
+            foreach (var i in junkDict.OrderBy(x => x.Key))
+            {
+                Console.WriteLine($"{i.Key}: {i.Value}");
+            }
         }
     }
 }
