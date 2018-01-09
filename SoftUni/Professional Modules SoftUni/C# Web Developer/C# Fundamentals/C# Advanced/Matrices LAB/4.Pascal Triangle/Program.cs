@@ -15,7 +15,7 @@ namespace _4.Pascal_Triangle
 
             for (int i =0; i < n; i++)
             {
-                matrx[i]= new long[i+1]; //////// <===== +1???
+                matrx[i]= new long[i+1];
                 matrx[i][matrx[i].Length - 1] = 1;
                 matrx[i][0] = 1;
 
