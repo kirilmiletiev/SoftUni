@@ -28,6 +28,14 @@ namespace _02.Basic_Stack_Operations
                 stack.Pop();
             }
 
+            
+            if (stack.Count<=0) /// fix null case
+            {
+                Console.WriteLine("0");
+                return;
+            }
+            
+            
             if (stack.Contains(x))
             {
                 Console.WriteLine("true");
