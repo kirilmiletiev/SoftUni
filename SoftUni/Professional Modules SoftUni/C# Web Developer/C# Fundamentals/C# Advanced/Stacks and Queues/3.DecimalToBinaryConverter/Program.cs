@@ -11,7 +11,14 @@ namespace _3.DecimalToBinaryConverter
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-
+             
+            
+            if ( n <=0)
+            {
+                Console.WriteLine("0");
+                return;
+            }
+            
             Stack<int> stack = new Stack<int>();
 
             while (n >0)
