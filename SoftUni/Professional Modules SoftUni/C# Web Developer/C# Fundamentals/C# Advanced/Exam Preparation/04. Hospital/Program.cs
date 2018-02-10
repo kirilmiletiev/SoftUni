@@ -1,71 +1,68 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-namespace _06.Hospital
+
+namespace _04._Hospital
 {
-    class Hospital
+    class Program
     {
         static void Main(string[] args)
         {
-            var departments = new Dictionary<string, List<string>>();
-            var doctors = new Dictionary<string, List<string>>();
-            var line = Console.ReadLine();
- 
-            while (line != "Output")
+            Dictionary<string, List<string>> doctors = new Dictionary<string, List<string>>();
+            Dictionary<string, List<string>> departaments = new Dictionary<string, List<string>>();
+
+            var data = Console.ReadLine();
+            while (data != "Output")
             {
-                var tokens = line.Split().ToArray();
-                var dep = tokens[0];
-                var dfn= tokens[1]+" "+ tokens[2];
-                var patient = tokens[3];
-                if (!departments.ContainsKey(dep))
+                var hospital = data.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+                var depart = hospital[0];
+                var doctor = hospital[1] + " " + hospital[2];
+                var patient = hospital[3];
+                ///add to departaments DICTIONARY
+                /// 
+                if (!departaments.ContainsKey(depart))
                 {
-                    departments[dep] = new List<string>();
+                    departaments.Add(depart, new List<string>());
                 }
-                departments[dep].Add(patient);
-                if (!doctors.ContainsKey(dfn))
+                departaments[depart].Add(patient);
+                ///add to doctors DICTIONARY
+                if (!doctors.ContainsKey(doctor))
                 {
-                    doctors[dfn] = new List<string>();
+                    doctors.Add(doctor, new List<string>());
                 }
-                doctors[dfn].Add(patient);
-                line = Console.ReadLine();
+                doctors[doctor].Add(patient);
+
+                data = Console.ReadLine();
             }
-            line = Console.ReadLine().Trim();
-            while (line != "End")
+            ////second part (PRINT)
+            var whatToPrint = Console.ReadLine().Trim();
+
+            while (whatToPrint != "End")
             {
-                var token = line.Split().ToArray();
-                if (token.Length == 1)
+                var result = whatToPrint.Split();
+
+                if (result.Length == 1)
                 {
-                    foreach (var patients in departments[line])
+                    foreach (string s in departaments[whatToPrint])
                     {
-                        Console.WriteLine(patients);
+                        Console.WriteLine(s);
                     }
                 }
-                else if (int.TryParse(token[1], out int result))
+                else if (int.TryParse(result[1], out int x))
                 {
-                    if (int.Parse(token[1]) > 20)
+                    foreach (string s in departaments[result[0]].Skip(3 * (x - 1)).Take(3).OrderBy(p => p))
                     {
-                        continue;
-                    }
-                    var patients = departments[token[0]];
-                    var room = patients.Skip( 3 * (int.Parse(token[1])-1)).Take(3).OrderBy(p=>p);
-                       
-                    foreach (var patient in room)
-                    {
-                        Console.WriteLine(patient);
+                        Console.WriteLine(s);
                     }
                 }
                 else
                 {
-                    var pat = doctors[line];
-                    pat.Sort();
-                    foreach (var patient in pat)
+                    foreach (string s in doctors[whatToPrint].OrderBy(hm => hm))
                     {
-                        Console.WriteLine(patient);
-                       
-                    }    
+                        Console.WriteLine(s);
+                    }
                 }
-                line = Console.ReadLine();
+                whatToPrint = Console.ReadLine();
             }
         }
     }
