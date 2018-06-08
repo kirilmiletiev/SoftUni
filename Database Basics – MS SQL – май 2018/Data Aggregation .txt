@@ -1,0 +1,218 @@
+USE Gringotts
+GO
+
+
+-- PROBLEM 01. Records’ Count
+
+SELECT  COUNT(WizzardDeposits.Id) AS [Count] FROM WizzardDeposits  --GROUP BY WizzardDeposits.Id
+
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 02. Longest Magic Wand
+
+SELECT MAX(MagicWandSize) AS [LongestMagicWand] FROM WizzardDeposits ;
+
+
+--  ******************************************************************************************
+
+
+
+
+-- PROBLEM 03. Longest Magic Wand per Deposit Groups
+
+SELECT DepositGroup, MAX(MagicWandSize) AS [LongestMagicWand] FROM WizzardDeposits GROUP BY  DepositGroup 
+
+--  ******************************************************************************************
+
+
+-- PROBLEM 04. Smallest Deposit Group per Magic Wand Sizes
+
+
+SELECT TOP(2) DepositGroup FROM WizzardDeposits GROUP BY DepositGroup ORDER BY AVG(MagicWandSize)
+
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 05. Deposits Sum
+
+SELECT DepositGroup, SUM(DepositAmount) AS [TotalSum] FROM WizzardDeposits GROUP BY DepositGroup
+
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 06. Deposits Sum for Ollivander Family
+
+SELECT DepositGroup, SUM(DepositAmount) AS [TotalSum]  FROM WizzardDeposits
+ WHERE MagicWandCreator = 'Ollivander family' GROUP BY DepositGroup
+
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 07. Deposits Filter
+
+SELECT DepositGroup, SUM(DepositAmount)  AS [TotalSum]  FROM WizzardDeposits
+ WHERE MagicWandCreator = 'Ollivander family' GROUP BY DepositGroup HAVING SUM(DepositAmount) < 150000
+ ORDER BY SUM(DepositAmount) DESC
+ 
+
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 08. Deposit Charge
+
+SELECT DepositGroup, MagicWandCreator, MIN(DepositCharge) AS [MinDepositCharge]
+FROM WizzardDeposits GROUP BY DepositGroup, MagicWandCreator 
+ORDER BY MagicWandCreator, DepositGroup
+
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 09. Age Groups
+
+SELECT CASE
+	     WHEN w.Age BETWEEN 0 AND 10
+	     THEN '[0-10]'
+	     WHEN w.Age BETWEEN 11 AND 20
+	     THEN '[11-20]'
+	     WHEN w.Age BETWEEN 21 AND 30
+	     THEN '[21-30]'
+	     WHEN w.Age BETWEEN 31 AND 40
+	     THEN '[31-40]'
+	     WHEN w.Age BETWEEN 41 AND 50
+	     THEN '[41-50]'
+	     WHEN w.Age BETWEEN 51 AND 60
+         THEN '[51-60]'
+         WHEN w.Age >= 61
+         THEN '[61+]'
+	    END AS [AgeGroup],
+	COUNT(*) AS WizardCount FROM WizzardDeposits AS w
+	GROUP BY CASE
+          WHEN w.Age BETWEEN 0 AND 10
+          THEN '[0-10]'
+          WHEN w.Age BETWEEN 11 AND 20
+          THEN '[11-20]'
+          WHEN w.Age BETWEEN 21 AND 30
+          THEN '[21-30]'
+          WHEN w.Age BETWEEN 31 AND 40
+          THEN '[31-40]'
+          WHEN w.Age BETWEEN 41 AND 50
+          THEN '[41-50]'
+          WHEN w.Age BETWEEN 51 AND 60
+          THEN '[51-60]'
+          WHEN w.Age >= 61
+          THEN '[61+]'
+	END
+--  ******************************************************************************************
+
+
+-- PROBLEM 10. First Letter
+
+SELECT  SUBSTRING(FirstName,1,1) AS [FirstName] FROM WizzardDeposits 
+  WHERE DepositGroup = 'Troll Chest'
+   GROUP BY SUBSTRING(FirstName,1,1) ORDER BY SUBSTRING(FirstName,1,1)
+
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 11. Average Interest
+
+SELECT DepositGroup, IsDepositExpired, AVG(DepositInterest) AS [AverageInterest] FROM WizzardDeposits
+  WHERE DepositStartDate >  '01/01/1985'  
+  GROUP BY DepositGroup, IsDepositExpired
+  ORDER BY DepositGroup DESC, IsDepositExpired ASC 
+
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 12. Rich Wizard, Poor Wizard
+SELECT SUM(ws.Difference) FROM(SELECT DepositAmount -(SELECT DepositAmount
+        FROM WizzardDeposits AS wsd WHERE wsd.Id = wd.Id + 1) AS Difference
+    FROM WizzardDeposits AS wd) AS ws; 
+
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 13. Departments Total Salaries
+
+USE SoftUni
+GO
+
+SELECT DepartmentID, SUM(Salary) AS [TotalSalary] FROM Employees
+ GROUP BY DepartmentID 
+
+
+--  ******************************************************************************************
+
+
+-- PROBLEM 14. Employees Minimum Salaries
+ SELECT DepartmentID ,MIN(Salary) AS [MinimumSalary] FROM Employees 
+ WHERE DepartmentID = 2 OR DepartmentID = 5 OR DepartmentID = 7
+ GROUP BY DepartmentID
+--  ******************************************************************************************
+
+
+-- PROBLEM 15. Employees Average Salaries
+
+ SELECT *  INTO NewTable FROM Employees WHERE Salary > 30000
+
+ DELETE FROM NewTable WHERE ManagerID = 42
+
+ UPDATE NewTable SET Salary += 5000 WHERE DepartmentID = 1
+
+ SELECT departmentID, AVG(Salary) AS [AverageSalary] from NewTable  GROUP BY DepartmentID
+
+--  ******************************************************************************************
+
+
+-- PROBLEM 16. Employees Maximum Salaries
+
+SELECT DepartmentID, MAX(Salary) AS [MaxSalary] FROM Employees
+ GROUP BY DepartmentID
+ HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
+ 
+--  ******************************************************************************************
+
+
+
+-- PROBLEM 17. Employees Count Salaries
+SELECT COUNT(EmployeeID) AS [Count] FROM Employees WHERE ManagerID IS NULL
+
+--  ******************************************************************************************
+
+
+-- PROBLEM 18. 3rd Highest Salary
+
+
+ SELECT TOP 3  DepartmentID,   MAX(Salary) AS [MaxSalary]   FROM Employees 
+ GROUP BY DepartmentID  ORDER BY MAX(SALARY) DESC
+
+
+ 
+SELECT DepartmentID,Salary FROM
+  (SELECT DepartmentID, Salary,DENSE_RANK() OVER(PARTITION BY DepartmentID 
+  ORDER BY Salary DESC) AS Rank
+    FROM Employees
+    GROUP BY DepartmentID,Salary) AS salaries WHERE Rank = 3
+GROUP BY DepartmentID,Salary;
+
+--  ******************************************************************************************
+
+
+-- PROBLEM 19. Salary Challenge
+USE SoftUni
+GO
+
+SELECT TOP 10 FirstName, LastName, DepartmentID FROM Employees AS e1 
+   WHERE Salary > (SELECT AVG(Salary)  FROM Employees AS e2 WHERE e1.DepartmentID = e2.DepartmentID)
+
+--  ******************************************************************************************
