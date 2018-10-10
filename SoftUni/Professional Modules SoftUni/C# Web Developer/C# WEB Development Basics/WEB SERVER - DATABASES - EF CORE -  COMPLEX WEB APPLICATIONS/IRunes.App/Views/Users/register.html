@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Register</title>
+</head>
+<body bgcolor="#E6E6FA">
+    <h1>IRunes</h1>
+    <div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users/login">Login</a></li>
+            <li><a href="/users/register">Register</a></li>
+        </ul>
+    </div>
+    <hr />
+    <h1>Register</h1>
+    <div style="display: {{showError}}; color: red">
+        {{error}}
+    </div>
+    <form method="post" action="/users/register">
+        <div>
+            Username:
+            <input type="text" name="username" placeholder="Username" />
+        </div>
+        <div>
+            Password:
+            <input type="password" name="password" placeholder="Password" />
+        </div>
+        <div>
+            Confirm Password:
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" />
+        </div>
+        <div>
+            Email:
+            <input type="text" name="email" placeholder="Email" />
+        </div>
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+    </form>
+    <hr />
+    <div>Copy Right &copy; <font color="blue"><strong>SoftBunny</strong></font> Design Studio. All right reserved.</div>
+</body>
+</html>

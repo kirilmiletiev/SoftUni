@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Album Details</title>
+</head>
+<body bgcolor="#E6E6FA">
+    <h1>IRunes</h1>
+    <div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/albums/all">Albums</a></li>
+            <li><a href="/users/logout">Logout</a></li>
+        </ul>
+    </div>
+    <hr />
+    <div><img src="{{cover}}" width="200" alt="AlbumImage" /></div>
+    <h3>Name: {{name}}</h3>
+    <h3>Price: {{price}}</h3>
+    <br />
+    <h3>Tracks</h3>
+    <hr />
+    <div>
+        <a href="/tracks/create?albumId={{albumId}}">Create Track</a>
+    </div>
+    <hr />
+    {{allTracks}}
+    <hr />
+    <div>
+        <a href="/albums/all">Back To All</a>
+    </div>
+    <hr />
+    <div>Copy Right &copy; <font color="blue"><strong>SoftBunny</strong></font> Design Studio. All right reserved.</div>
+</body>
+</html>
