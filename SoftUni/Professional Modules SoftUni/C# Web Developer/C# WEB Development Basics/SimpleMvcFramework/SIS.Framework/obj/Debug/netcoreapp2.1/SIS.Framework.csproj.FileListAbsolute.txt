@@ -1,0 +1,14 @@
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\bin\Debug\netcoreapp2.1\SIS.Framework.deps.json
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\bin\Debug\netcoreapp2.1\SIS.Framework.dll
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\bin\Debug\netcoreapp2.1\SIS.Framework.pdb
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\bin\Debug\netcoreapp2.1\SIS.HTTP.dll
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\bin\Debug\netcoreapp2.1\SIS.WebServer.dll
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\bin\Debug\netcoreapp2.1\SIS.WebServer.pdb
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\bin\Debug\netcoreapp2.1\SIS.HTTP.pdb
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\obj\Debug\netcoreapp2.1\SIS.Framework.csprojAssemblyReference.cache
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\obj\Debug\netcoreapp2.1\SIS.Framework.csproj.CoreCompileInputs.cache
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\obj\Debug\netcoreapp2.1\SIS.Framework.AssemblyInfoInputs.cache
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\obj\Debug\netcoreapp2.1\SIS.Framework.AssemblyInfo.cs
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\obj\Debug\netcoreapp2.1\SIS.Framework.csproj.CopyComplete
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\obj\Debug\netcoreapp2.1\SIS.Framework.dll
+C:\Users\106\Desktop\09.SimpleMvcFramework\SIS.Framework\obj\Debug\netcoreapp2.1\SIS.Framework.pdb
