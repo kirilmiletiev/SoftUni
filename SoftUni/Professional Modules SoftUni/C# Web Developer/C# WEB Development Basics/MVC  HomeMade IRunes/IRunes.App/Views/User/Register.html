@@ -1,0 +1,61 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand" href="/"><i class="fas fa-music"></i>  IRunes</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/"><i class="fas fa-home"></i>  Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/User/Login"><i class="fas fa-user-check"></i>  Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/User/Register"><i class="fas fa-user-plus"></i>  Register</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<hr style="height: 1px; background-color: green" />
+
+<div style="display: {{{DisplayError}}}">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 alert alert-danger text-center" role="alert">
+            {{{ErrorMessage}}}
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h1 class="text-success" style="text-align: center">Register</h1>
+        <hr style="height: 1px; background-color: green" />
+        <form method="post" action="/User/Register">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" required="" class="form-control" id="username" name="username" aria-describedby="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" required class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" required class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" required class="form-control" id="email" name="email" aria-describedby="email" placeholder="Email">
+            </div>
+            <div class="row justify-content-center">
+                <button type="submit" class="btn btn-warning btn-lg">Register</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>
