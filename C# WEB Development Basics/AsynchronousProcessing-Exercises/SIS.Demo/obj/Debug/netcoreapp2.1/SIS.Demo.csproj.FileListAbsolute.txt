@@ -1,0 +1,16 @@
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\bin\Debug\netcoreapp2.1\SIS.Demo.deps.json
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\bin\Debug\netcoreapp2.1\SIS.Demo.runtimeconfig.json
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\bin\Debug\netcoreapp2.1\SIS.Demo.runtimeconfig.dev.json
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\bin\Debug\netcoreapp2.1\SIS.Demo.dll
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\bin\Debug\netcoreapp2.1\SIS.Demo.pdb
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\bin\Debug\netcoreapp2.1\SIS.HTTP.dll
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\bin\Debug\netcoreapp2.1\SIS.WebServer.dll
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\bin\Debug\netcoreapp2.1\SIS.HTTP.pdb
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\bin\Debug\netcoreapp2.1\SIS.WebServer.pdb
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\obj\Debug\netcoreapp2.1\SIS.Demo.csprojAssemblyReference.cache
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\obj\Debug\netcoreapp2.1\SIS.Demo.csproj.CoreCompileInputs.cache
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\obj\Debug\netcoreapp2.1\SIS.Demo.AssemblyInfoInputs.cache
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\obj\Debug\netcoreapp2.1\SIS.Demo.AssemblyInfo.cs
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\obj\Debug\netcoreapp2.1\SIS.Demo.csproj.CopyComplete
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\obj\Debug\netcoreapp2.1\SIS.Demo.dll
+C:\Users\106\Desktop\AsynchronousProcessing-Exercises\SIS.Demo\obj\Debug\netcoreapp2.1\SIS.Demo.pdb
