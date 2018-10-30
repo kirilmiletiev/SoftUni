@@ -1,4 +1,5 @@
-﻿using SIS.Framework.Api;
+﻿using SIS.Demo.Controllers;
+using SIS.Framework.Api;
 using SIS.Framework.Services;
 
 namespace SIS.Demo
@@ -7,6 +8,13 @@ namespace SIS.Demo
     {
         public override void ConfigureServices(IDependencyContainer dependencyContainer)
         {
+            dependencyContainer.RegisterDependency<HomeController, HomeController>();
+            //dependencyContainer.RegisterDependency<UsersController, UsersController>();
+            //dependencyContainer.RegisterDependency<TasksController, TasksController>();
+            //dependencyContainer.RegisterDependency<ReportersController, ReportersController>();
+
+            //dependencyContainer.RegisterDependency<IUserService, UserService>();
+            //dependencyContainer.RegisterDependency<ITaskService, TaskService>();
         }
     }
 }
