@@ -1,4 +1,6 @@
-﻿namespace Torshiq.Models
+﻿using Torshiq.Models.Enums;
+
+namespace Torshiq.Models
 {
     public class User: BaseEntity
     {

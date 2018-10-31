@@ -1,4 +1,4 @@
-﻿namespace Torshiq.Models
+﻿namespace Torshiq.Models.Enums
 {
     public enum Role    
     {

@@ -13,11 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS.Demo", "SIS.Demo\SIS.De
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Torshiq", "Torshiq", "{25533EDC-FBCA-42C6-8D2A-31F977B40F41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torshiq.App", "Torshiq.App\Torshiq.App.csproj", "{A987F2EE-9E76-4420-B69C-7CCA78108E82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Torshiq.App", "Torshiq.App\Torshiq.App.csproj", "{A987F2EE-9E76-4420-B69C-7CCA78108E82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torshiq.Models", "Torshiq.Models\Torshiq.Models.csproj", "{776F4270-C228-4075-B554-466129A516D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Torshiq.Models", "Torshiq.Models\Torshiq.Models.csproj", "{776F4270-C228-4075-B554-466129A516D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torshiq.Data", "Torshiq.Data\Torshiq.Data.csproj", "{11571A8B-80EB-4B3F-A300-92E94F652F93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Torshiq.Data", "Torshiq.Data\Torshiq.Data.csproj", "{11571A8B-80EB-4B3F-A300-92E94F652F93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

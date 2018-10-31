@@ -1,6 +1,8 @@
 ﻿using SIS.Framework.Api;
 using SIS.Framework.Services;
 using Torshiq.App.Controllers;
+using Torshiq.App.Services;
+using Torshiq.App.Services.Contracts;
 
 namespace Torshiq.App
 {
@@ -9,12 +11,12 @@ namespace Torshiq.App
         public override void ConfigureServices(IDependencyContainer dependencyContainer)
         {
             dependencyContainer.RegisterDependency<HomeController, HomeController>();
-            //dependencyContainer.RegisterDependency<UsersController, UsersController>();
+            dependencyContainer.RegisterDependency<UsersController, UsersController>();
             //dependencyContainer.RegisterDependency<TasksController, TasksController>();
             //dependencyContainer.RegisterDependency<ReportersController, ReportersController>();
 
-            //dependencyContainer.RegisterDependency<IUserService, UserService>();
-            //dependencyContainer.RegisterDependency<ITaskService, TaskService>();
+            dependencyContainer.RegisterDependency<IUserService, UserService>();
+            dependencyContainer.RegisterDependency<ITaskService, TaskService>();
         }
     }
 }

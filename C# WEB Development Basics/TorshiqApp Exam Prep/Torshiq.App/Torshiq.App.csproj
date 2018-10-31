@@ -8,10 +8,16 @@
   <ItemGroup>
     <ProjectReference Include="..\SIS.Framework\SIS.Framework.csproj" />
     <ProjectReference Include="..\SIS.WebServer\SIS.WebServer.csproj" />
+    <ProjectReference Include="..\Torshiq.Data\Torshiq.Data.csproj" />
+    <ProjectReference Include="..\Torshiq.Models\Torshiq.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Views\Shared\DisplayTemplates\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0-preview3-35497" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +28,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Views\Shared\_Layout.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Views\Users\Login.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Views\Users\Register.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

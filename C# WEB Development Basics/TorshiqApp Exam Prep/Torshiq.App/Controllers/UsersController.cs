@@ -1,15 +1,25 @@
 ﻿using SIS.Framework.ActionResults;
 using SIS.Framework.Attributes.Method;
-using SIS.Framework.Controllers;
 using System;
+using SIS.Framework.ActionResults.Implementations;
+using SIS.Framework.Security;
+using Torshiq.App.Services.Contracts;
 using Torshiq.App.ViewModel;
 
 namespace Torshiq.App.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
+        private readonly IUserService userService;
+
+        public UsersController(IUserService userService)
+        {
+            this.userService = userService;
+        }
+
         public IActionResult Login()
         {
+
             return this.View();
         }
 
@@ -17,7 +27,20 @@ namespace Torshiq.App.Controllers
         [HttpPost]
         public IActionResult Login(LoginViewModel model)
         {
-            throw new NotImplementedException();
+            var userExist = userService.IsUserExist(model.Username);
+
+            if (!userExist)
+            {
+                return RedirectToAction("/Users/Register");
+            }
+
+            this.SignIn(new IdentityUser()
+            {
+                Username = model.Username,
+                Password = model.Password,
+            });
+
+            return new RedirectResult("/");
         }
 
 
@@ -29,7 +52,16 @@ namespace Torshiq.App.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel model)
         {
-            throw new NotImplementedException();
+            this.userService.AddUser(model.Username,model.Password, model.Email );
+
+            this.SignIn(new IdentityUser()
+            {
+                Email = model.Email,
+                Password = model.Password,
+                Username = model.Username,
+            });
+
+            return RedirectToAction("/");
         }
 
 

@@ -4,6 +4,6 @@ namespace Torshiq.App.Controllers
 {
     public class BaseController : Controller
     {
-
+        
     }
 }

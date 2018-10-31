@@ -10,6 +10,7 @@ using SIS.Framework.Controllers;
 using SIS.Framework.Routers.Contracts;
 using SIS.Framework.Services;
 using SIS.HTTP.Enums;
+using SIS.HTTP.Extensions;
 using SIS.HTTP.Requests;
 using SIS.HTTP.Responses;
 using SIS.WebServer.Results;
@@ -232,8 +233,8 @@ namespace SIS.Framework.Routers
             string controllerName = controllerAndActionNames[0];
             string actionName = controllerAndActionNames[1];
 
-            Controller controller = this.GetController(controllerName, request);
-            MethodInfo action = this.GetMethod(request.RequestMethod.ToString(), controller, actionName);
+            Controller controller = this.GetController(controllerName.Capitalize(), request);
+            MethodInfo action = this.GetMethod(request.RequestMethod.ToString(), controller, actionName.Capitalize());
 
             if (controller == null || action == null)
             {
