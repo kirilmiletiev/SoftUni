@@ -64,6 +64,13 @@ namespace Torshiq.App.Controllers
             return RedirectToAction("/");
         }
 
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            this.SignOut();
+            return new RedirectResult("/");
+        }
+
 
     }
 }
