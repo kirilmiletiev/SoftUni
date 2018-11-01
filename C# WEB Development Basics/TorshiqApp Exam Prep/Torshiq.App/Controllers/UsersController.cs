@@ -1,10 +1,13 @@
 ﻿using SIS.Framework.ActionResults;
 using SIS.Framework.Attributes.Method;
 using System;
+using System.Collections.Generic;
 using SIS.Framework.ActionResults.Implementations;
 using SIS.Framework.Security;
+using SIS.Framework.Views;
 using Torshiq.App.Services.Contracts;
 using Torshiq.App.ViewModel;
+using Torshiq.Models.Enums;
 
 namespace Torshiq.App.Controllers
 {
@@ -16,6 +19,8 @@ namespace Torshiq.App.Controllers
         {
             this.userService = userService;
         }
+
+
 
         public IActionResult Login()
         {
@@ -34,11 +39,23 @@ namespace Torshiq.App.Controllers
                 return RedirectToAction("/Users/Register");
             }
 
-            this.SignIn(new IdentityUser()
+            if (userService.GetUser(model.Username,model.Password) == null)
             {
-                Username = model.Username,
-                Password = model.Password,
-            });
+                return new RedirectResult("/");
+            }
+            else
+            {
+                this.SignIn(new IdentityUser()
+                {
+                    Username = model.Username,
+                    Password = model.Password,
+                    IsValid = model.IsValid,
+                    Roles = model.Roles,
+
+                });
+            }
+
+           
 
             return new RedirectResult("/");
         }
@@ -52,15 +69,21 @@ namespace Torshiq.App.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel model)
         {
-            this.userService.AddUser(model.Username,model.Password, model.Email );
+           var user = this.userService.AddUser(model.Username, model.Password, model.Email);
+
+            var role = user.Role.ToString();
 
             this.SignIn(new IdentityUser()
             {
                 Email = model.Email,
                 Password = model.Password,
                 Username = model.Username,
+                IsValid = true,
+                Roles = new List<string>() {role},
+                
             });
 
+            
             return RedirectToAction("/");
         }
 

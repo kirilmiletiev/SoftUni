@@ -6,7 +6,7 @@ namespace Torshiq.App.Services.Contracts
 {
     public interface IUserService
     {
-        void AddUser(string username, string password, string email);
+        User AddUser(string username, string password, string email);
 
         User GetUser(string username);
 

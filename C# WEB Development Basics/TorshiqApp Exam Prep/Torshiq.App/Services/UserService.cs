@@ -15,7 +15,7 @@ namespace Torshiq.App.Services
             this.context = context;
         }
 
-        public void AddUser(string username, string password, string email)
+        public User AddUser(string username, string password, string email)
         {
             
 
@@ -31,6 +31,7 @@ namespace Torshiq.App.Services
 
             context.Users.Add(user);
             context.SaveChanges();
+            return user;
         }
 
         public User GetUser(string username)
