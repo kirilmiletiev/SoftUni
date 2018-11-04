@@ -18,7 +18,7 @@ namespace Torshiq.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Server=DESKTOP-8KI8MHA\SQLEXPRESS;Database=Torshiq;Integrated Security=True;");
+                @"Server=.;Database=Torshiq;Integrated Security=True;");
 
             base.OnConfiguring(optionsBuilder);
         }
