@@ -19,8 +19,6 @@ namespace Torshiq.App.Controllers
         [HttpGet]
         public IActionResult Index(LoginViewModel model)
         {
-
-
             return this.View();
         }
     }
