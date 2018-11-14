@@ -29,12 +29,16 @@ namespace Chushka.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<int>("CustomRole");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("FullName");
+
+                    b.Property<bool>("IsLoggedIn");
 
                     b.Property<bool>("LockoutEnabled");
 

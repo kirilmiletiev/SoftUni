@@ -3,26 +3,33 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using Chushka.Data.Models;
+using Chushka.Services;
+using Chushka.Services.Contracts;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
 
 namespace Chushka.Data
 {
     public class ChushkaDbContext : IdentityDbContext<ChushkaUser>
     {
+
         public ChushkaDbContext(DbContextOptions<ChushkaDbContext> options)
             : base(options)
         {
         }
 
+        
+        
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<Product> Products { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
-           
+         
         //    base.OnConfiguring(optionsBuilder);
         //}
 
