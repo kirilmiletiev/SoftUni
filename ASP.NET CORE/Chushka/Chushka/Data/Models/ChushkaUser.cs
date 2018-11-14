@@ -15,6 +15,20 @@ namespace Chushka.Data.Models
 
         public string  FullName { get; set; }
 
+        public CustomRole CustomRole { get; set; }
+
+        public bool IsLoggedIn { get; set; }    
+
         public ICollection<Order> Orders { get; set; }
+    }
+
+
+    /// <summary>
+    /// Sorry Jelev... :)
+    /// </summary>
+    public enum CustomRole
+    {
+        Admin = 1,
+        User = 2
     }
 }
