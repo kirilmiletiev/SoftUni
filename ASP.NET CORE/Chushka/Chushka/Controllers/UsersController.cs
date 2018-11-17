@@ -13,9 +13,15 @@ namespace Chushka.Controllers
     {
         private readonly IUserService service;
 
-        public UsersController(IUserService service)
+        private AspNetUserManager<ChushkaUser> manager;
+
+        private SignInManager<ChushkaUser> signInManager;
+
+        public UsersController(IUserService service, AspNetUserManager<ChushkaUser> manager, SignInManager<ChushkaUser> signInManager)
         {
             this.service = service;
+            this.manager = manager;
+            this.signInManager = signInManager;
         }
 
 
@@ -44,6 +50,9 @@ namespace Chushka.Controllers
                 {
                     user.IsLoggedIn = true;
                 }
+
+              //var a =  manager.SupportsUserLogin;
+
             }
 
 
@@ -78,6 +87,8 @@ namespace Chushka.Controllers
             };
 
             this.service.AddUser(user);
+
+            
 
             //return this.View();
             return this.RedirectPermanent("/");
