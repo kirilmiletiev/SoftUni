@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Suzy.Data.Models.Contracts;
 
 namespace Suzy.Data.Models
 {
-    public class Sender
+    public class Sender : ISender
     {
         public int Id { get; set; }
 

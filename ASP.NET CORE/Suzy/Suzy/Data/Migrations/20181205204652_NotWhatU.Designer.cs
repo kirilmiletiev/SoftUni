@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Suzy.Data;
 
 namespace Suzy.Data.Migrations
 {
     [DbContext(typeof(SuzyDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181205204652_NotWhatU")]
+    partial class NotWhatU
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,15 +158,9 @@ namespace Suzy.Data.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<bool>("IsPackageDelivered");
-
-                    b.Property<bool>("IsPackagePaid");
-
                     b.Property<int?>("RecipientId");
 
                     b.Property<int?>("SenderId");
-
-                    b.Property<double>("Weight");
 
                     b.HasKey("Id");
 

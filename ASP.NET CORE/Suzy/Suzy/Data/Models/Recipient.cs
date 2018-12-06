@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Suzy.Data.Models
 {
-    public class Recipient
+    public class Recipient 
     {
         public int Id { get; set; }
 
