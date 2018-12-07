@@ -15,7 +15,12 @@ namespace Suzy.Data.Models
             this.IsPackagePaid = false;
         }
 
-      //TODO: Constructor with Sender and Recipient!
+        public Package(Sender sender, Recipient recipient)
+        :this()
+        {
+            Sender = sender;
+            Recipient = recipient;
+        }
 
         public int Id { get; set; }
 
@@ -29,6 +34,8 @@ namespace Suzy.Data.Models
 
         public bool IsPackageDelivered { get; set; }
 
-        public bool IsPackagePaid { get; set; } 
+        public bool IsPackagePaid { get; set; }
+
+        //public Courier Courier { get; set; }
     }
 }

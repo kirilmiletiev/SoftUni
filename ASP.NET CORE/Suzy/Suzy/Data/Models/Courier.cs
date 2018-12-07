@@ -7,6 +7,11 @@ namespace Suzy.Data.Models
 {
     public class Courier
     {
+        public Courier()
+        {
+            this.Packages = new List<Package>();
+        }
+
         public int Id { get; set; }
 
         public string FirstName { get; set; }
@@ -16,5 +21,7 @@ namespace Suzy.Data.Models
         public int Age { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public ICollection<Package> Packages { get; set; }
     }
 }
