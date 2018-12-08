@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Suzy.Data;
 
 namespace Suzy.Data.Migrations
 {
     [DbContext(typeof(SuzyDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181208113029_ChainingEntitys2")]
+    partial class ChainingEntitys2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -199,9 +201,13 @@ namespace Suzy.Data.Migrations
 
                     b.Property<string>("PhoneNumber");
 
+                    b.Property<string>("UserId");
+
                     b.Property<string>("UserName");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Recipients");
                 });
@@ -222,9 +228,13 @@ namespace Suzy.Data.Migrations
 
                     b.Property<string>("PhoneNumber");
 
+                    b.Property<string>("UserId");
+
                     b.Property<string>("UserName");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Senders");
                 });
@@ -258,8 +268,6 @@ namespace Suzy.Data.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256);
 
-                    b.Property<int?>("PackageId");
-
                     b.Property<string>("PasswordHash");
 
                     b.Property<string>("PhoneNumber");
@@ -282,8 +290,6 @@ namespace Suzy.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("PackageId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -347,16 +353,23 @@ namespace Suzy.Data.Migrations
                         .WithMany()
                         .HasForeignKey("SenderId");
 
-                    b.HasOne("Suzy.Data.Models.User", "User")
+                    b.HasOne("Suzy.Data.Models.User")
                         .WithMany("Packages")
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("Suzy.Data.Models.User", b =>
+            modelBuilder.Entity("Suzy.Data.Models.Recipient", b =>
                 {
-                    b.HasOne("Suzy.Data.Models.Package")
+                    b.HasOne("Suzy.Data.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("PackageId");
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Suzy.Data.Models.Sender", b =>
+                {
+                    b.HasOne("Suzy.Data.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

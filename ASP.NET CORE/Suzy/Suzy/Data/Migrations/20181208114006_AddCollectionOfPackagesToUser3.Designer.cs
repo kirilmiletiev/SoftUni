@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Suzy.Data;
 
 namespace Suzy.Data.Migrations
 {
     [DbContext(typeof(SuzyDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181208114006_AddCollectionOfPackagesToUser3")]
+    partial class AddCollectionOfPackagesToUser3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -258,8 +260,6 @@ namespace Suzy.Data.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256);
 
-                    b.Property<int?>("PackageId");
-
                     b.Property<string>("PasswordHash");
 
                     b.Property<string>("PhoneNumber");
@@ -282,8 +282,6 @@ namespace Suzy.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("PackageId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -350,13 +348,6 @@ namespace Suzy.Data.Migrations
                     b.HasOne("Suzy.Data.Models.User", "User")
                         .WithMany("Packages")
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Suzy.Data.Models.User", b =>
-                {
-                    b.HasOne("Suzy.Data.Models.Package")
-                        .WithMany()
-                        .HasForeignKey("PackageId");
                 });
 #pragma warning restore 612, 618
         }

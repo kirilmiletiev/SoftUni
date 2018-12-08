@@ -36,6 +36,9 @@ namespace Suzy.Data.Models
 
         public bool IsPackagePaid { get; set; }
 
+
+        public User User { get; set; }
+
         //public Courier Courier { get; set; }
     }
 }

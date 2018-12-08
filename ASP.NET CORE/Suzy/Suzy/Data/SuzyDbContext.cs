@@ -21,5 +21,11 @@ namespace Suzy.Data
         public DbSet<Recipient> Recipients { get; set; }
 
         public DbSet<Courier> Couriers { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Package>().HasMany<User>();
+            base.OnModelCreating(builder);
+        }
     }
 }
