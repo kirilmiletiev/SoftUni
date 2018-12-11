@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,24 @@ namespace Suzy.Data
         public SuzyDbContext(DbContextOptions<SuzyDbContext> options)
             : base(options)
         {
+           
+        }
+
+        private void Seed()
+        {
+            Recipient recipient = new Recipient()
+            {
+                Age = 20,
+                Address = "Mladost4",
+                FirstName = "Pesho",
+                LastName = "Peshev",
+                PhoneNumber = "0888888888",
+                UserName = "pesho@abv.bg"
+            };
+            this.Recipients.Add(recipient);
+
+            var user = Users.FirstOrDefault(x => x.UserName == "pesho@abv.bg");
+            user.PhoneNumber = recipient.PhoneNumber;
         }
 
         public DbSet<Package> Packages { get; set; }
@@ -27,5 +46,7 @@ namespace Suzy.Data
             builder.Entity<Package>().HasMany<User>();
             base.OnModelCreating(builder);
         }
+
+        
     }
 }

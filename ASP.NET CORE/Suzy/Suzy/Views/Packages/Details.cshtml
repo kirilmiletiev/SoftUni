@@ -1,0 +1,43 @@
+﻿@model Suzy.Data.Models.Package
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Package</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPackageDelivered)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsPackageDelivered)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPackagePaid)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsPackagePaid)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

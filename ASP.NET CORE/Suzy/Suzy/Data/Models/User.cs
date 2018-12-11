@@ -19,6 +19,12 @@ namespace Suzy.Data.Models
 
         public string Description { get; set; }
 
+        public string Address { get; set; }
+
+        public string LastName { get; set; }
+
+        public string FirstName { get; set; }
+
         public CustomRole CustomRole { get; set; }
 
         public ICollection<Package> Packages { get; set; }
