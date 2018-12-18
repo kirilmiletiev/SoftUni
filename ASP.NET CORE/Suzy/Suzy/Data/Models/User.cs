@@ -14,6 +14,8 @@ namespace Suzy.Data.Models
             this.Packages = new List<Package>();
 
             this.CustomRole = CustomRole.Customer;
+
+            
         }
         public int Age { get; set; }
 

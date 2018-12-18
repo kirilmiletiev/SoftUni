@@ -9,6 +9,7 @@ namespace Suzy.Data.Models.Enums
     {   
         Admin = 1,  
         Customer = 2,
-        Moderator = 3
+        Moderator = 3,
+        Courier = 4
     }
 }
